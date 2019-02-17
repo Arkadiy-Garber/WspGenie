@@ -329,7 +329,9 @@ os.system("rm %s/wspgenie.csv" % args.outdir)
 os.system("mv %s/wspgenie-2.csv %s/wspgenie.csv" % (args.outdir, args.outdir))
 
 
-
+for i in results:
+    if lastItem(i.split(".")) in ["txt", "tblout"]:
+        os.system("rm %s/%s" % (args.outdir, i))
 
 
 
