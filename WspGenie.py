@@ -313,13 +313,16 @@ out.write("orf" + "," + "gene" + "," + "domain" + "," + "domain_bitscore_ratio" 
 for i in summaryDict.keys():
     contig = i
     print(i)
+    for m in summaryDict[i]:
+        print(m)
+    print("\n\n\n\n\n")
     for j in clu:
         if len(j) > 3:
             for k in j:
                 ORF = (contig + "_" + str(k))
                 print(summaryDict[i])
+                print(j)
                 print(k)
-                print(str(k))
                 print(summaryDict[i][str(k)])
                 print(str(summaryDict[i][str(k)]["gene"]))
                 print("")
