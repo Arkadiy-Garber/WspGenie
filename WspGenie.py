@@ -312,10 +312,15 @@ out = open(args.outdir + "/wspgenie-2.csv", "w")
 out.write("orf" + "," + "gene" + "," + "domain" + "," + "domain_bitscore_ratio" + "," + "domain" + "," + "domain_bitscore_ratio" + "," + "domain" + "," + "domain_bitscore_ratio" + "\n")
 for i in summaryDict.keys():
     contig = i
+    print(i)
     for j in clu:
         if len(j) > 3:
             for k in j:
                 ORF = (contig + "_" + str(k))
+                print(summaryDict[i])
+                print(summaryDict[i][str(k)])
+                print(str(summaryDict[i][str(k)]["gene"]))
+                print("")
                 out.write(ORF + "," + str(summaryDict[i][str(k)]["gene"][0]))
                 for l in range(0, len(summaryDict[i][str(k)]["domain"])):
                     out.write("," + summaryDict[i][str(k)]["domain"][l] + "," + str(float(summaryDict[i][str(k)]["threshold"][l]) / float(summaryDict[i][str(k)]["bit"][l])))
