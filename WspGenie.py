@@ -297,40 +297,34 @@ for i in summary:
     summaryDict[contig][orfNum]["bit"].append(bit)
     summaryDict[contig][orfNum]["threshold"].append(threshold)
 
-orfs = []
+orfs = defaultdict(list)
 for i in summaryDict.keys():
     for j in summaryDict[i]:
-        orfs.append(int(j))
-clu = cluster(orfs, 2)
+        orfs[i].append(int(j))
+
+ORFS = defaultdict(list)
+for i in orfs.keys():
+    clu = cluster(orfs[i], 2)
+    for j in clu:
+        if len(j) > 3:
+            ORFS[i].append(j)
 
 out = open(args.outdir + "/wspgenie-2.csv", "w")
 out.write("orf" + "," + "gene" + "," + "domain" + "," + "domain_bitscore_ratio" + "," + "domain" + "," + "domain_bitscore_ratio" + "," + "domain" + "," + "domain_bitscore_ratio" + "\n")
-for i in summaryDict.keys():
-    contig = i
-    print(i)
-    for m in summaryDict[i]:
-        print(m)
-    print("\n\n\n\n\n")
-    for j in clu:
-        if len(j) > 3:
-            for k in j:
-                ORF = (contig + "_" + str(k))
-                print(summaryDict[i])
-                print(j)
-                print(k)
-                print(summaryDict[i][str(k)])
-                print(str(summaryDict[i][str(k)]["gene"]))
-                print("")
-                out.write(ORF + "," + str(summaryDict[i][str(k)]["gene"][0]))
-                for l in range(0, len(summaryDict[i][str(k)]["domain"])):
-                    out.write("," + summaryDict[i][str(k)]["domain"][l] + "," + str(float(summaryDict[i][str(k)]["threshold"][l]) / float(summaryDict[i][str(k)]["bit"][l])))
-                out.write("\n")
-            out.write("#" + "\n")
+for i in ORFS:
+    for j in ORFS[i]:
+        for k in j:
+            ORF = (i + "_" + str(k))
+            print(ORF)
+            out.write(ORF + "," + str(summaryDict[i][str(k)]["gene"][0]))
+            for l in range(0, len(summaryDict[i][str(k)]["domain"])):
+                out.write("," + summaryDict[i][str(k)]["domain"][l] + "," + str(float(summaryDict[i][str(k)]["threshold"][l]) / float(summaryDict[i][str(k)]["bit"][l])))
+            out.write("\n")
+            print(summaryDict[i][str(k)])
+        print("")
+    out.write("#" + "\n")
+
 out.close()
-
-if args.format == "contigs":
-    os.system("mv %s-proteins.faa %s/") % (args.bin, args.outdir)
-
 os.system("rm %s/wspgenie.csv" % args.outdir)
 os.system("mv %s/wspgenie-2.csv %s/wspgenie.csv" % (args.outdir, args.outdir))
 
