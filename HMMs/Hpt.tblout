@@ -1,0 +1,25 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+2579788493_1393      -          Hpt                  PF01627.23   3.6e-84  275.7  79.5   1.4e-15   55.9   3.7  10.8   9   1   1  10  10  10   8 # 1476716 # 1484134 # 1 # ID=1_1393;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.695
+2579788493_4076      -          Hpt                  PF01627.23   3.5e-22   77.0   0.6   3.5e-22   77.0   0.6   2.3   2   0   0   2   2   2   1 # 4386033 # 4387961 # -1 # ID=1_4076;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=3-4bp;gc_cont=0.689
+2579788493_5253      -          Hpt                  PF01627.23   1.6e-18   65.3   3.5   3.1e-18   64.3   0.6   2.9   2   0   0   2   2   2   1 # 5647161 # 5649422 # -1 # ID=1_5253;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.668
+2579788493_2451      -          Hpt                  PF01627.23   3.8e-15   54.4   1.8     6e-15   53.8   1.8   1.3   1   0   0   1   1   1   1 # 2630044 # 2630394 # 1 # ID=1_2451;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.630
+2579788493_4309      -          Hpt                  PF01627.23   4.4e-15   54.2   2.3   4.4e-15   54.2   2.3   2.6   2   0   0   2   2   2   1 # 4633284 # 4635446 # 1 # ID=1_4309;partial=00;start_type=TTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=11-12bp;gc_cont=0.699
+2579788493_2748      -          Hpt                  PF01627.23   4.9e-15   54.1   6.7   4.9e-15   54.1   6.7   3.5   3   1   1   4   4   4   1 # 2953208 # 2955517 # 1 # ID=1_2748;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.694
+2579788493_133       -          Hpt                  PF01627.23   9.6e-14   49.9   7.5   9.6e-14   49.9   7.5   2.5   3   0   0   3   3   2   1 # 161073 # 163298 # 1 # ID=1_133;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.675
+2579788493_827       -          Hpt                  PF01627.23     2e-12   45.7   4.6     2e-12   45.7   4.6   3.1   2   0   0   2   2   2   1 # 855831 # 858608 # 1 # ID=1_827;partial=00;start_type=GTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.671
+2579788493_3525      -          Hpt                  PF01627.23   5.5e-10   37.9   0.7   3.6e-09   35.3   0.7   2.5   1   0   0   1   1   1   1 # 3787502 # 3791140 # 1 # ID=1_3525;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.651
+2579788493_3934      -          Hpt                  PF01627.23   1.1e-09   37.0   6.3   1.6e-09   36.4   6.3   1.3   1   0   0   1   1   1   1 # 4224489 # 4224854 # -1 # ID=1_3934;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.678
+2579788493_1743      -          Hpt                  PF01627.23   2.6e-08   32.5   3.7   2.6e-08   32.5   3.7   4.0   3   1   1   4   4   4   1 # 1855530 # 1857782 # -1 # ID=1_1743;partial=00;start_type=GTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.707
+2579788493_4537      -          Hpt                  PF01627.23     0.021   13.6   0.6      0.04   12.7   0.6   1.5   1   0   0   1   1   1   0 # 4861425 # 4861871 # 1 # ID=1_4537;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.613
+#
+# Program:         hmmsearch
+# Version:         3.2.1 (June 2018)
+# Pipeline mode:   SEARCH
+# Query file:      Hpt.hmm
+# Target file:     /Users/arkadiygarber/Desktop/Psuedomonas_aeruginosa_PAO1.txt-proteins.faa
+# Option settings: hmmsearch --tblout Hpt.tblout Hpt.hmm /Users/arkadiygarber/Desktop/Psuedomonas_aeruginosa_PAO1.txt-proteins.faa 
+# Current dir:     /Users/arkadiygarber/wspGenie/HMMs
+# Date:            Sun Feb 17 01:19:24 2019
+# [ok]
