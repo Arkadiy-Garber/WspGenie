@@ -318,6 +318,8 @@ for i in summaryDict.keys():
             for k in j:
                 ORF = (contig + "_" + str(k))
                 print(summaryDict[i])
+                print(k)
+                print(str(k))
                 print(summaryDict[i][str(k)])
                 print(str(summaryDict[i][str(k)]["gene"]))
                 print("")
