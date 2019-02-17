@@ -241,14 +241,9 @@ for i in bits:
     bitDict[ls[0]]["bit"] = ls[2]
 
 if args.format == "contigs":
-    os.system("prodigal -i %s -a %s/%s-proteins.faa -o %s/%s-prodigal.out -q" % (args.bin, args.outdir, args.bin, args.outdir, args.bin))
+    os.system("prodigal -i %s -a %s-proteins.faa -o %s-prodigal.out -q" % (args.bin, args.bin, args.bin))
 else:
     os.system("mv %s %s-proteins.faa" % (args.bin, args.bin))
-
-binDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
-binMapDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
-BIN = open(args.bin + "-proteins.faa")
-BIN = fasta(BIN)
 
 os.system("mkdir " + args.outdir)
 
