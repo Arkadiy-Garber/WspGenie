@@ -247,9 +247,10 @@ else:
 
 binDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
 binMapDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
-BIN = open("%s/" + args.bin + "-proteins.faa")
+BIN = open(args.bin + "-proteins.faa")
 BIN = fasta(BIN)
 
+os.system("mkdir " + args.outdir)
 
 hmms = os.listdir(args.hmm_dir)
 for i in hmms:
