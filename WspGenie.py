@@ -315,13 +315,10 @@ for i in ORFS:
     for j in ORFS[i]:
         for k in j:
             ORF = (i + "_" + str(k))
-            print(ORF)
             out.write(ORF + "," + str(summaryDict[i][str(k)]["gene"][0]))
             for l in range(0, len(summaryDict[i][str(k)]["domain"])):
                 out.write("," + summaryDict[i][str(k)]["domain"][l] + "," + str(float(summaryDict[i][str(k)]["threshold"][l]) / float(summaryDict[i][str(k)]["bit"][l])))
             out.write("\n")
-            print(summaryDict[i][str(k)])
-        print("")
     out.write("#" + "\n")
 
 out.close()
