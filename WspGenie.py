@@ -220,9 +220,9 @@ parser = argparse.ArgumentParser(
     Please send comments and inquiries to arkadiyg@usc.edu
     
                               .-=-.
-                         /  ! )\n
+                         /  ! ) )
                       __ \__/__/
-                     / _<( ^.^ )
+                     / _<( ^.^ )   Your wish is my command...
                     / /   \ c /O
                     \ \_.-./=\.-._     _
                      `-._  `~`    `-,./_<
