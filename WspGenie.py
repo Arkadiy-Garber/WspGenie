@@ -218,15 +218,41 @@ parser = argparse.ArgumentParser(
     Developed by Arkadiy Garber and Gustavo Ramírez;
     University of Southern California, Earth Sciences
     Please send comments and inquiries to arkadiyg@usc.edu
+    
+                              .-=-.
+                         /  ! )\
+                      __ \__/__/
+                     / _<( ^.^ )
+                    / /   \ c /O
+                    \ \_.-./=\.-._     _
+                     `-._  `~`    `-,./_<
+                         `\' \'\`'----'
+                       *   \  . \          *
+                            `-~~~\   .
+                       .      `-._`-._   *
+                             *    `~~~-,      *
+                   ()                   * )
+                  <^^>             *     (   .
+                 .-""-.                    )
+      .---.    ."-....-"-._     _...---''`/. '
+     ( (`\ \ .'            ``-''    _.-"'`
+      \ \ \ : :.                 .-'
+       `\`.\: `:.             _.'
+       (  .'`.`            _.'
+        ``    `-..______.-'
+                  ):.  (
+                ."-....-".
+          jgs .':.        `.
+              "-..______..-"
 
     *******************************************************
     '''))
+
 
 parser.add_argument('-bin', type=str, help="FASTA format file")
 parser.add_argument('-format', type=str, help="is the input fasta file ORFs or contigs (orfs/contigs). "
                                               "If contigs is chosen, then prodigal will be run."
                                               "Default = contigs", default = "contigs")
-parser.add_argument('-bin_ext', type=str, help="extension for files with ORFs")
 parser.add_argument('-outdir', type=str, help="output directory (will be created if does not exist)", default="genie_out")
 parser.add_argument('-hmm_dir', type=str, help='directory of HMMs', default="NA")
 
