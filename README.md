@@ -4,7 +4,7 @@ Script for the identification of the Wsp operon in meta-omics datasets, inlcudin
 
 ### Dependencies
       python3
-      HHMER
+      HHMER (v.3.2.1)
 
 ### easy-install
       git clone https://github.com/Arkadiy-Garber/WspGenie.git
