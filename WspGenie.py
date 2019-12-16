@@ -265,7 +265,7 @@ for i in bits:
     bitDict[ls[0]]["bit"] = ls[2]
 
 if args.format == "contigs":
-    os.system("prodigal -i %s -a %s-proteins.faa -o %s-prodigal.out -q" % (args.bin, args.bin, args.bin))
+    os.system("prodigal -i %s -a %s-proteins.faa -o %s-prodigal.out -q" % (args.i, args.i, args.i))
 else:
     os.system("mv %s %s-proteins.faa" % (args.i, args.i))
 
@@ -275,7 +275,7 @@ hmms = os.listdir(args.hmm_dir)
 for i in hmms:
     if lastItem(i.split(".")) == "hmm":
         os.system(
-            "hmmsearch --tblout %s/%s.tblout -o %s/%s.txt %s/%s %s-proteins.faa" % (args.outdir, i, args.outdir, i, args.hmm_dir, i, args.bin))
+            "hmmsearch --tblout %s/%s.tblout -o %s/%s.txt %s/%s %s-proteins.faa" % (args.outdir, i, args.outdir, i, args.hmm_dir, i, args.i))
 
 
 results = os.listdir(args.outdir)
