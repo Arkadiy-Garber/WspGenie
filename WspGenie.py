@@ -215,9 +215,7 @@ parser = argparse.ArgumentParser(
     description=textwrap.dedent('''
     *******************************************************
 
-    Developed by Arkadiy Garber and Gustavo Ramírez;
-    University of Southern California, Earth Sciences
-    Please send comments and inquiries to arkadiyg@usc.edu
+    Please send comments and inquiries to rkdgarber@gmail.com
     
                               .-=-.
                          /  ! ) )
@@ -249,7 +247,7 @@ parser = argparse.ArgumentParser(
     '''))
 
 
-parser.add_argument('-bin', type=str, help="FASTA format file")
+parser.add_argument('-i', type=str, help="input file in FASTA format file")
 parser.add_argument('-format', type=str, help="is the input fasta file ORFs or contigs (orfs/contigs). "
                                               "If contigs is chosen, then prodigal will be run."
                                               "Default = contigs", default = "contigs")
@@ -269,7 +267,7 @@ for i in bits:
 if args.format == "contigs":
     os.system("prodigal -i %s -a %s-proteins.faa -o %s-prodigal.out -q" % (args.bin, args.bin, args.bin))
 else:
-    os.system("mv %s %s-proteins.faa" % (args.bin, args.bin))
+    os.system("mv %s %s-proteins.faa" % (args.i, args.i))
 
 os.system("mkdir " + args.outdir)
 
