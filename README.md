@@ -2,7 +2,7 @@
 
 Script for the identification of the Wsp operon in meta-omics datasets, inlcuding (meta)genomes, and (meta)transcriptomes.
 
-### Easy-install
+### easy-install
       git clone https://github.com/Arkadiy-Garber/WspGenie.git
       cd WspGenie
       chmod +x WspGenie.py
