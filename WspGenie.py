@@ -248,16 +248,16 @@ parser = argparse.ArgumentParser(
 
 
 parser.add_argument('-i', type=str, help="input file in FASTA format file")
-parser.add_argument('-format', type=str, help="is the input fasta file ORFs or contigs (orfs/contigs). "
+parser.add_argument('-f', type=str, help="is the input fasta file ORFs or contigs (orfs/contigs). "
                                               "If contigs is chosen, then prodigal will be run."
                                               "Default = contigs", default = "contigs")
-parser.add_argument('-outdir', type=str, help="output directory (will be created if does not exist)", default="genie_out")
-parser.add_argument('-hmm_dir', type=str, help='directory of HMMs', default="NA")
+parser.add_argument('-l', type=str, help="output directory (will be created if does not exist)", default="genie_out")
+parser.add_argument('-h', type=str, help='directory of HMMs', default="NA")
 
 args = parser.parse_args()
 
 
-bits = open(args.hmm_dir + "/bitscores.txt")
+bits = open(args.h + "/bitscores.txt")
 bitDict = defaultdict(lambda: defaultdict(lambda: 'EMPTY'))
 for i in bits:
     ls = i.rstrip().split("\t")
@@ -269,20 +269,20 @@ if args.format == "contigs":
 else:
     os.system("mv %s %s-proteins.faa" % (args.i, args.i))
 
-os.system("mkdir " + args.outdir)
+os.system("mkdir " + args.o)
 
-hmms = os.listdir(args.hmm_dir)
+hmms = os.listdir(args.h)
 for i in hmms:
     if lastItem(i.split(".")) == "hmm":
         os.system(
-            "hmmsearch --tblout %s/%s.tblout -o %s/%s.txt %s/%s %s-proteins.faa" % (args.outdir, i, args.outdir, i, args.hmm_dir, i, args.i))
+            "hmmsearch --tblout %s/%s.tblout -o %s/%s.txt %s/%s %s-proteins.faa" % (args.outdoir, i, args.o, i, args.h, i, args.i))
 
 
-results = os.listdir(args.outdir)
+results = os.listdir(args.o)
 resultsDict = defaultdict(lambda: defaultdict(list))
 for i in results:
     if lastItem(i.split(".")) == "tblout":
-        result = open(args.outdir + "/" + i, "r")
+        result = open(args.o + "/" + i, "r")
         for line in result:
             if not re.match(r'#', line):
                 ls = delim(line)
@@ -298,7 +298,7 @@ for i in results:
                     resultsDict[orf]["gene"].append(gene)
                     resultsDict[orf]["bit"].append(bit)
 
-out = open(args.outdir + "/wspgenie.csv", "w")
+out = open(args.o + "/wspgenie.csv", "w")
 for i in sorted(resultsDict.keys()):
     for j in range(0, len(resultsDict[i]["query"])):
         out.write(i + "," + str(resultsDict[i]["query"][j]) + "," + str(resultsDict[i]["gene"][j]) + "," + str(resultsDict[i]["bit"][j]) + "," + str(resultsDict[i]["threshold"][j]) + "\n")
@@ -306,7 +306,7 @@ out.close()
 
 
 summaryDict = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
-summary = open(args.outdir + "/wspgenie.csv", "r")
+summary = open(args.o + "/wspgenie.csv", "r")
 for i in summary:
     ls = i.rstrip().split(",")
     orf = ls[0]
@@ -333,7 +333,7 @@ for i in orfs.keys():
         if len(j) > 3:
             ORFS[i].append(j)
 
-out = open(args.outdir + "/wspgenie-2.csv", "w")
+out = open(args.o + "/wspgenie-2.csv", "w")
 out.write("orf" + "," + "gene" + "," + "domain" + "," + "domain_bitscore_ratio" + "," + "domain" + "," + "domain_bitscore_ratio" + "," + "domain" + "," + "domain_bitscore_ratio" + "\n")
 for i in ORFS:
     for j in ORFS[i]:
@@ -346,13 +346,13 @@ for i in ORFS:
     out.write("#" + "\n")
 
 out.close()
-os.system("rm %s/wspgenie.csv" % args.outdir)
-os.system("mv %s/wspgenie-2.csv %s/wspgenie.csv" % (args.outdir, args.outdir))
+os.system("rm %s/wspgenie.csv" % args.o)
+os.system("mv %s/wspgenie-2.csv %s/wspgenie.csv" % (args.o, args.o))
 
 
 for i in results:
     if lastItem(i.split(".")) in ["txt", "tblout"]:
-        os.system("rm %s/%s" % (args.outdir, i))
+        os.system("rm %s/%s" % (args.of, i))
 
 
 
