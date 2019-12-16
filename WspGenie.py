@@ -264,7 +264,7 @@ for i in bits:
     bitDict[ls[0]]["gene"] = ls[1]
     bitDict[ls[0]]["bit"] = ls[2]
 
-if args.format == "contigs":
+if args.f == "contigs":
     os.system("prodigal -i %s -a %s-proteins.faa -o %s-prodigal.out -q" % (args.i, args.i, args.i))
 else:
     os.system("mv %s %s-proteins.faa" % (args.i, args.i))
